@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chef</title>
+    <link rel="stylesheet" href="chef.css" />
+  </head>
+  <body>
+    <h1>Saapunut tilaus</h1>
+    <pre id="forChef"></pre>
+    <div id="tilaustaulu">
+      <button type="button" class="btn" onclick="clearLocalStorage()">
+        <strong>Tyhjennä tilaukset</strong>
+        <div id="container-stars">
+          <div id="stars"></div>
+        </div>
+
+        <div id="glow">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </button>
+    </div>
+    <script>
+      const tilaukset = JSON.parse(localStorage.getItem("tilaukset")) || [];
+      const kokinTiedot = document.getElementById("forChef");
+      kokinTiedot.innerHTML = tilaukset.length
+        ? tilaukset.map((t, i) => `Tilaus${i + 1}:\n${t}\n\n`).join("")
+        : "Ei tilauksia";
+
+      function clearLocalStorage() {
+        localStorage.removeItem("tilaukset"); // Poistaa vain tilaukset, ei kaikkea!
+        location.reload();
+      }
+    </script>
+  </body>
+</html>

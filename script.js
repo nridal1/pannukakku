@@ -82,5 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
     summary += `<strong>Toimitustapa:</strong> ${delivery}<br>`;
     summary += `<strong>Kokonaishinta:</strong> ${totalPriceDisplay.textContent}<br>`;
     summaryText.innerHTML = summary;
+    //luon uuden muutujan "tilaukset"
+    let tilaukset = JSON.parse(localStorage.getItem("tilaukset")) || [];
+    //lisätään uuen tilauksen listaan summary
+    tilaukset.push(summary);
+    //tallenna tilauksen
+    localStorage.setItem("tilaukset", JSON.stringify(tilaukset));
   });
 });
