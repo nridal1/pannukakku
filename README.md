@@ -15,6 +15,8 @@ Tämä on selainpohjainen tilaussovellus, jonka avulla asiakas voi tehdä pannuk
 
 ### Asiakas (order.html)
 
+git
+
 - Syöttää nimensä
 - Valitsee pannukakun tyypin
 - Valitsee täytteet ja lisukkeet
